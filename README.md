@@ -31,16 +31,19 @@ Push-to-talk voice dictation for [pi-agent](https://github.com/earendil-works/pi
 
 ### Whisper Server
 
-You need a local Whisper server running. The project assumes a server at `~/whisper/server.py` (FastAPI + `mlx_whisper`) listening on port 8002.
-
-Start it before using voin:
+You need a local Whisper server running. The project includes one in `whisper-server/`.
 
 ```bash
-cd ~/whisper
-python3 server.py
+cd whisper-server
+python3 -m venv .
+source bin/activate
+pip install -r requirements.txt
+python server.py
 ```
 
-The server uses `whisper-large-v3-turbo` from `~/.omlx/models/whisper-large-v3-turbo/`.
+Server starts on `http://127.0.0.1:8002`. First request takes ~30s (model load). See [whisper-server/README.md](whisper-server/README.md) for full setup.
+
+If you already have a server at `~/whisper/server.py`, leave it running — voin uses port 8002.
 
 ## Installation
 
@@ -170,6 +173,10 @@ pi-voin/
 │       ├── level-monitor.ts     ← Volume meter (RMS sampling)
 │       ├── widget.ts            ← TUI widget renderer
 │       └── transcriber.ts       ← Whisper HTTP client
+└── whisper-server/
+    ├── README.md                ← Server setup guide
+    ├── requirements.txt         ← Python dependencies
+    └── server.py                ← FastAPI + MLX Whisper
 ```
 
 ## Development
