@@ -1,0 +1,18 @@
+{
+  "name": "pi-voin-extension",
+  "type": "module",
+  "pi": {
+    "extensions": ["src/index.ts"]
+  },
+  "scripts": {
+    "dev": "pi --extension ./src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "latest",
+    "@earendil-works/pi-tui": "latest",
+    "@earendil-works/pi-ai": "latest",
+    "tsx": "^4.7.0",
+    "typescript": "^5.7.0"
+  }
+}
