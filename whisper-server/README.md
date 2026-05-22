@@ -15,7 +15,7 @@ source bin/activate
 pip install -r requirements.txt
 
 # Download model (first time, ~6GB)
-huggingface-cli download mlx-community/whisper-large-v3-turbo --local-dir ~/.omlx/models/whisper-large-v3-turbo
+hf download mlx-community/whisper-large-v3-turbo --local-dir ~/.omlx/models/whisper-large-v3-turbo
 ```
 
 ## Run
